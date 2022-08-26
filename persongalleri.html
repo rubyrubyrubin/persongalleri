@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Persongalleri</title>
   </head>
   <style>
     #holder {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1em;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: 2em;
     }
     article {
       border: 1px solid black;
@@ -18,11 +18,18 @@
     }
 
     img {
-      max-width: 25%;
+      max-width: 100%;
       aspect-ratio: 1/1;
     }
+
+    /* @media (max-width: 400px) {
+      #holder {
+        display: grid;
+        grid-template-columns: repeat(1fr 1fr);
+      } */
   </style>
   <body>
+    <h1>Persongalleri</h1>
     <main id="holder"></main>
     <template>
       <article>
@@ -51,14 +58,14 @@
         // console.log(personer);
         // holder er mains class //
         const holder = document.querySelector("#holder");
-        const skabelon = document.querySelector("template").content;
+        const template = document.querySelector("template").content;
 
         personer.forEach((person) => {
           const klon = template.cloneNode(true);
           klon.querySelector(".billede").src = "faces/" + person.billede;
           klon.querySelector(".navn").textContent = person.fornavn + " " + person.efternavn;
           klon.querySelector(".titel").textContent = person.titel;
-          klon.querySelector(".fødselsdag").textContent = person.fødselsdag;
+          klon.querySelector(".fødselsdag").textContent = "Fødselsdag: " + person.fødselsdag.slice(0, 10);
           klon.querySelector("article").style.borderRadius = "lem";
           holder.appendChild(klon);
         });
