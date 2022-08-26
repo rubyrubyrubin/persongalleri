@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    template {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1em;
+    }
+
+    article {
+      border: 1px solid black;
+      padding: 1em;
+    }
+
+    img {
+      max-width: 25%;
+      aspect-ratio: 1/1;
+    }
+  </style>
+  <body>
+    <template>
+      <article>
+        <img src="" alt="" class="billede" />
+        <h2 class="navn"></h2>
+        <p class="titel"></p>
+        <p class="fødselsdag"></p>
+      </article>
+    </template>
+
+    <script>
+      const url = "https://persongalleri-5d3e.restdb.io/rest/persongalleri";
+      const key = "600fe9211346a1524ff12e31";
+      let personer;
+
+      document.addEventListener("DOMContentLoaded", start);
+    </script>
+  </body>
+</html>
+
+<!-- database, tabel med personer, navn, fodselsdag. bruge det endpoint i stedet.  -->
